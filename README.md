@@ -12,7 +12,7 @@ Nesta aula foi revisado o conceito de POO e como desafio foi pedido para criar u
 
 ## Aula 2
 
-Nesta aula foi abordado o que é? como funciona? e como fazer versionamento de códigos com o git para o github. E como exercício foi pedio para incluir interação com o usuário para os métodos já criados e criar a funcionalidade de adicionar novos filmes e abaixo esta as intruções para utilizar o código criado.
+Nesta aula foi abordado o que é? como funciona? e como fazer versionamento de códigos com o git para o github. E como exercício foi pedio para incluir interação com o usuário para os métodos já criados e criar a funcionalidade de adicionar novos filmes.Abaixo segue as intruções para utilizar o código criado.
 
 ### Como Usar
 
