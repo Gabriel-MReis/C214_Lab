@@ -5,17 +5,6 @@
 # IMC app
 
 Esse é um aplicativo que pede o peso e altura de um usuário e vai retornar seu IMC e como ele está na classificação de acordo com uma tabela de classificação. Também tem uma breve explicação do que é IMC e algumas dica para ter um bom IMC de acordo com sua classificação.
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
 
 ## Criando a aplicação
 
