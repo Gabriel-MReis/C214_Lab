@@ -85,43 +85,57 @@
   		}
   </script>
   
-  <main>
-	<h1>Calculadora de IMC</h1>
-	<label>
-	  Peso (kg): <input type="number" bind:value={peso} on:input={calcularIMC} />
-	</label>
-	<label>
-	  Altura (m): <input type="number" bind:value={altura} on:input={calcularIMC} />
-	</label>
-	{#if imc > 0}
-	  <p>Seu IMC é {imc}</p>
-	  <p>Sua classificação é <span style="color: {classificacaoIMC(imc)}">{classificacao}</span></p>
-	{/if}
-	<button on:click={toggleDescription}>O que é IMC?</button>
-	  {#if showDescription}
-		<div>
-			<!-- Descrição do IMC -->
-			<p>
-			O Índice de Massa Corporal (IMC) é uma medida que avalia a relação entre o peso
-			e a altura de uma pessoa. Ele é usado para determinar se uma pessoa está dentro
-			de faixas consideradas saudáveis em termos de peso.
-			</p>
-			<p>
-			O IMC pode ser útil para identificar riscos para a saúde associados ao peso,
-			mas é importante lembrar que ele não leva em consideração fatores individuais
-			como composição corporal e distribuição de gordura.
-			</p>
-			<h2>Dicas para Melhorar o IMC</h2>
-			<ul>
-				{#each getTips(imc) as tip}
-				<li>{tip}</li>
-				{/each}
-			</ul>
-		</div>
-	   {/if}
-  </main>
-  
+  <body>
+	<main>
+		<h1>Calculadora de IMC</h1>
+		<label>
+		Peso (kg): <input type="number" bind:value={peso} on:input={calcularIMC} />
+		</label>
+		<label>
+		Altura (m): <input type="number" bind:value={altura} on:input={calcularIMC} />
+		</label>
+		{#if imc > 0}
+		<p>Seu IMC é {imc}</p>
+		<p>Sua classificação é <span style="color: {classificacaoIMC(imc)}">{classificacao}</span></p>
+		{/if}
+		<button on:click={toggleDescription}>O que é IMC?</button>
+		{#if showDescription}
+			<div>
+				<!-- Descrição do IMC -->
+				<p>
+				O Índice de Massa Corporal (IMC) é uma medida que avalia a relação entre o peso
+				e a altura de uma pessoa. Ele é usado para determinar se uma pessoa está dentro
+				de faixas consideradas saudáveis em termos de peso.
+				</p>
+				<p>
+				O IMC pode ser útil para identificar riscos para a saúde associados ao peso,
+				mas é importante lembrar que ele não leva em consideração fatores individuais
+				como composição corporal e distribuição de gordura.
+				</p>
+				<h2>Dicas para Melhorar o IMC</h2>
+				<ul>
+					{#each getTips(imc) as tip}
+					<li>{tip}</li>
+					{/each}
+				</ul>
+			</div>
+		{/if}
+	</main>
+  </body>
+
   <style>
+	body {
+		background-color: #e6f7ff; 
+		background-image: url('https://img.freepik.com/vetores-premium/a-saude-de-fundo-abstrato-azul_66029-25.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+	}
+
+
 	main {
 	  font-family: sans-serif;
 	  text-align: center;
@@ -142,4 +156,3 @@
 	  padding: 0.25rem;
 	}
   </style>
-  
