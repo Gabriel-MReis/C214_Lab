@@ -5,6 +5,8 @@
 	let imc = 0;       // Índice de Massa Corporal
 	let classificacao = "";
 	let showDescription = false;
+	let tips = "";
+	let color = "";
 
 	// Função para alternar a exibição da descrição do IMC
 	function toggleDescription() {
@@ -24,65 +26,49 @@
 	function classificacaoIMC(imc){
 		if (imc <= 18.5){
 			classificacao = "Abaixo do peso";
-			return "blue";
-		}else if(imc <= 24.9){
-			classificacao = "Peso ideal (parabens)";
-			return "green";
-		}else if(imc <= 29.9){
-			classificacao = "Levemente acima do peso";
-			return "orange";
-		}else if(imc <= 34.9){
-			classificacao = "Obesidade grau I";
-			return "red";
-		}else if(imc <= 39.9){
-			classificacao = "Obesidade grau II (severa)";
-			return "darkred";
-		}else{
-			classificacao = "Obesidade III (morbida)"
-			return "purple";
-		}
-	}
-
-	// Função para obter dicas de acordo com a classificação do IMC
-	function getTips(imc) {
-		if (imc == 0){
-			return [
-				"Coloque suas irformações para receber dicas de como melhor seu IMC."
-			];
-		}
-		else if (imc <= 18.5) {
-			return [
+			color = "blue";
+			tips = [
 				"Considere aumentar a ingestão de calorias saudáveis.",
 				"Inclua alimentos ricos em nutrientes, como proteínas magras e carboidratos complexos.",
 				"Consulte um profissional de saúde para orientação personalizada.",
 			];
-		} else if (imc <= 24.9) {
-			return [
+		}else if(imc <= 24.9){
+			classificacao = "Peso ideal (parabens)";
+			color = "green";
+			tips = [
 				"Continue mantendo uma dieta equilibrada e saudável.",
 				"Mantenha um estilo de vida ativo com exercícios regulares.",
 			];
-		} else if (imc <= 29.9) {
-			return [
+		}else if(imc <= 29.9){
+			classificacao = "Levemente acima do peso";
+			color = "orange";
+			tips = [
 				"Aumente a atividade física para queimar calorias extras.",
 				"Faça escolhas alimentares conscientes, optando por porções menores.",
 			];
-		} else if (imc <= 34.9) {
-			return [
+		}else if(imc <= 34.9){
+			classificacao = "Obesidade grau I";
+			color = "red";
+			tips = [
 				"Converse com um profissional de saúde para criar um plano de dieta e exercícios.",
 				"Priorize alimentos frescos e naturais, evitando alimentos ultraprocessados.",
 			];
-		} else if (imc <= 39.9) {
-			return [
+		}else if(imc <= 39.9){
+			classificacao = "Obesidade grau II (severa)";
+			color = "darkred";
+			tips = [
 				"Busque orientação médica para abordar problemas de saúde relacionados.",
 				"Procure um nutricionista para criar um plano de refeições personalizado.",
 			];
-		} else {
-			return [
+		}else{
+			classificacao = "Obesidade III (morbida)"
+			color = "purple";
+			tips = [
 				"Procure ajuda médica para discutir opções de tratamento.",
 				"Foque em fazer mudanças sustentáveis na dieta e no estilo de vida.",
 			];
 		}
-  		}
+	}
   </script>
   
   <body>
@@ -96,7 +82,7 @@
 		</label>
 		{#if imc > 0}
 		<p>Seu IMC é {imc}</p>
-		<p>Sua classificação é <span style="color: {classificacaoIMC(imc)}">{classificacao}</span></p>
+		<p>Sua classificação é <span style="color: {color}">{classificacao}</span></p>
 		{/if}
 		<button on:click={toggleDescription}>O que é IMC?</button>
 		{#if showDescription}
@@ -114,9 +100,11 @@
 				</p>
 				<h2>Dicas para Melhorar o IMC</h2>
 				<ul>
-					{#each getTips(imc) as tip}
-					<li>{tip}</li>
-					{/each}
+					{#if imc > 0}
+						{#each tips as tip}
+						<li>{tip}</li>
+						{/each}
+					{/if}
 				</ul>
 			</div>
 		{/if}
