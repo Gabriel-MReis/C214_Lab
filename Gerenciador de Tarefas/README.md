@@ -18,7 +18,7 @@ Siga os passos abaixo para começar a usar o Gerenciador de Tarefas:
 Clone este repositório para o seu ambiente local:
 
 ```bash
-git clone https://github.com/seu-usuario/gerenciador-de-tarefas.git
+git clone https://github.com/Gabriel-MReis/gerenciador-de-tarefas.git
 ```
 ### 2. Abrir o Aplicativo
 Abra o arquivo index.html em qualquer navegador web para iniciar o aplicativo.
