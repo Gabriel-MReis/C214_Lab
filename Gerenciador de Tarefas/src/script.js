@@ -1,23 +1,20 @@
 let tasks = [];
 
-function addTask() {
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const importance = document.getElementById('importance').value;
-
+function addTask(title,description,importance) {
+    if (typeof document !== 'undefined') {
+        title = document.getElementById('title').value;
+        description = document.getElementById('description').value;
+        importance = document.getElementById('importance').value;
+    }
+    
     if (title && description && importance) {
         const creationDate = new Date();
-        tasks.push({ title, description, importance, status: 'A fazer', expanded: false, creationDate });
+        const newTask = { title, description, importance, status: 'A fazer', expanded: false, creationDate };
+        tasks.push(newTask);
+        if (typeof document === 'undefined') { return newTask;}
         updateTaskList();
         clearInputs();
     }
-}
-
-function addTask_(title, description, importance) {
-    const creationDate = new Date();
-    const newTask = { title, description, importance, status: 'A fazer', expanded: false, creationDate };
-    tasks.push(newTask);
-    return newTask;
 }
 
 function updateStatus(index, newStatus) {
@@ -112,7 +109,6 @@ function clearInputs() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         addTask,
-        addTask_,
         updateStatus,
         toggleTask,
         deleteTask,
@@ -123,10 +119,11 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 }
 
-// Exemplo de tarefas iniciais
+/* Exemplo de tarefas iniciais
 tasks = [
     { title: 'Tarefa 1', description: 'Descrição da Tarefa 1', importance: 'alta', status: 'A fazer', expanded: false, creationDate: new Date() },
     { title: 'Tarefa 2', description: 'Descrição da Tarefa 2', importance: 'média', status: 'A fazer', expanded: false, creationDate: new Date() }
 ];
 
 updateTaskList();
+*/
