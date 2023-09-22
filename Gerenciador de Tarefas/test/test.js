@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 
 // Importe as funções que você deseja testar
-const { addTask, updateStatus, deleteTask, getTasks } = require('../src/script');
+const { addTask_, updateStatus, deleteTask, getTasks } = require('../src/script');
 
 describe('Testes do Gerenciador de Tarefas', () => {
     let tasks;
@@ -17,7 +17,7 @@ describe('Testes do Gerenciador de Tarefas', () => {
     it('Deve adicionar uma nova tarefa', () => {
         const initialLength = tasks.length;
 
-        addTask('Nova Tarefa', 'Descrição da Nova Tarefa', 'alta');
+        addTask_('Nova Tarefa', 'Descrição da Nova Tarefa', 'alta');
 
         assert.lengthOf(getTasks(), initialLength + 1);
         assert.equal(getTasks()[getTasks().length - 1].title, 'Nova Tarefa');

@@ -13,7 +13,7 @@ function addTask() {
     }
 }
 
-function addTask(title, description, importance) {
+function addTask_(title, description, importance) {
     const creationDate = new Date();
     const newTask = { title, description, importance, status: 'A fazer', expanded: false, creationDate };
     tasks.push(newTask);
@@ -112,6 +112,7 @@ function clearInputs() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         addTask,
+        addTask_,
         updateStatus,
         toggleTask,
         deleteTask,
